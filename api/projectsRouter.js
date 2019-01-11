@@ -59,7 +59,32 @@ router.put('/:id', (req, res) => {
     }
 });
 
+router.get('/:id/actions', (req,res) => {
+    let {id} = req.params;
 
+    projectsDb.get()
+    .then( projects => {
+        let found = false;
+            for(let i = 0; i < projects.length; i++) {
+                if (projects[i].id == id) {
+                    found = true;
+                    break;
+                }
+            }
+            if(found){
+                projectsDb.getProjectActions(id)
+                .then(posts =>{
+                    res.status(200).json(posts)
+                })
+                .catch(err => {
+                    res.status(500).json(err)
+                })
+            }else{
+                res.status(500).json({msg: "id must be an existing project"})
+            }
+    })
+    .catch(err => res.status(500).json({msg: "cant find the projects list", err}))
+})
 
 
 
