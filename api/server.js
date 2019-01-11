@@ -11,5 +11,7 @@ configureMiddlewar(server);
 //routes
 server.use('/projects', projectsRouter);
 
+server.use('/actions', actionsRouter);
+
 
 module.exports = server;
