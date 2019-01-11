@@ -5,6 +5,8 @@ module.exports = router;
 
 const projectsDb = require('../data/helpers/projectModel.js');
 
+const nameToUpper = require('./middleware/customMiddleware.js');
+
 
 router.get('/', (req, res) => {
     Get(req, res);
@@ -14,7 +16,7 @@ router.get('/:id', (req, res) => {
     Get(req, res);
 });
 
-router.post('/', (req,res) => {
+router.post('/', nameToUpper, (req,res) => {
     const postInfo = req.body;
     if((postInfo.name !== undefined && postInfo.description !== undefined)){
         if(postInfo.name.length < 128){
