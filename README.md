@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+applying middlware to a database request as parameter. ability to route server requests from other files.
+
 - [ ] Describe Middleware?
+
+functions that add features to express.
 
 - [ ] Describe a Resource?
 
+files that make it easier to access our database.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+a status code of 200, and a message from a json object.
+
 - [ ] How can we partition our application into sub-applications?
+
+using module exports and require to import and export files that use express into eachother.
 
 ## Project Setup
 
